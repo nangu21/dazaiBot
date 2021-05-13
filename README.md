@@ -1,5 +1,5 @@
 # 太宰治風の文章を生成するBot
-青空文庫から太宰治の全作品を取り込み、マルコフ連鎖により新しい文章を生成します。
+[青空文庫](https://github.com/aozorabunko/aozorabunko)から太宰治の全作品を取り込み、マルコフ連鎖により新しい文章を生成します。
 
 ## 🍕 つまずいたところ
 ### 💥 [OSError:24] Too many open files
@@ -22,8 +22,9 @@ root hard nofile 64000
 3. `esc`でコマンドに切り替え、`:wq`で変更を保存
 
 以上により、無事最大ファイルオープン数を変更できました。<br>
-画像は`$ ulimit -a`で各種リソースの最大値を確認した結果です。`nofile`が64000になっているのが確認できます。
+画像は`$ ulimit -a`で各種リソースの最大値を確認した結果です。`nofile`が64000になっているのが確認できます。<br>
 ![ulimit_change結果](ulimit_change.jpg)
+
 ### 参考
 - [ファイルディスクリプタ数の上限変更とlimits.confの罠(YUMELOG)](https://staffblog.yumemi.jp/ファイルディスクリプタ数の上限変更とlimits-confの罠-2/)
 - [limits.confファイルにカーネルパラメタを設定する(Hitachi)](http://itdoc.hitachi.co.jp/manuals/3000/3000650130/HSYG0057.HTM)
