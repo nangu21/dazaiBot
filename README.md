@@ -10,11 +10,10 @@
 `$ ulimit -n 64000`を実行して、上限の変更を試みた。しかしこの変更の反映は一時的で、**rebootすると元の値に戻ってしまった。**<br>
 ##### やったこと②
 ユーザごとのリソース制限を設定する`/etc/security/limits.conf`ファイルを変更した。
-1. 仮想環境のターミナルで
+1. 仮想環境のターミナルで以下を実行
 ```console
 $ sudo vi /etc/security/limits.conf
 ```
-を実行<br>
 2. 編集モード「i」で以下のように記述
 ```console
 root soft nofile 64000
