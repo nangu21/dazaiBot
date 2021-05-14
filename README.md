@@ -5,7 +5,7 @@
 ### 💥 [OSError:24] Too many open files
 読み込む文章が多すぎて、OSエラーが出てしまった。
 調べたところ、1プロセスが同時オープン可能なファイルディスクリプタ数の上限を超えてしまっていたことが原因らしい。ターミナル上で`ulimit -n`して現在の上限を確認したところ、結果は`256`でした。(標準の`1024`と比べてもかなり少ないぞ…。)
-### 解決
+**解決**<br>
 ##### やったこと①
 `$ ulimit -n 64000`を実行して、上限の変更を試みた。しかしこの変更の反映は一時的で、**rebootすると元の値に戻ってしまった。**<br>
 ##### やったこと②
@@ -25,6 +25,6 @@ root hard nofile 64000
 画像は`$ ulimit -a`で各種リソースの最大値を確認した結果です。`nofile`が64000になっているのが確認できます。<br>
 ![ulimit_change結果](ulimit_change.jpg)
 
-### 参考
+**参考**<br>
 - [ファイルディスクリプタ数の上限変更とlimits.confの罠(YUMELOG)](https://staffblog.yumemi.jp/ファイルディスクリプタ数の上限変更とlimits-confの罠-2/)
 - [limits.confファイルにカーネルパラメタを設定する(Hitachi)](http://itdoc.hitachi.co.jp/manuals/3000/3000650130/HSYG0057.HTM)
